@@ -1,16 +1,16 @@
-*{
+* {
   margin: 5px;
   font-size: 14px; /* to win weight in global font we can use !important */
   font-family: 'Roboto';
 }
 
-.flex-cointainer{
+.flex{
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.main-header{
+.main-header {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -19,21 +19,21 @@
   text-align: center;
 }
 
-.nav-bar{
+.nav-bar {
   height: 500px;
   width: 20%;
   background-color: #bbdefb;
   border: 1px solid black;
 }
 
-section{
+section {
   height: 500px;
   width: 60%;
   margin-left: 5px;
   margin-right: 5px;
 }
 
-.section-header{
+.section-header {
   height: 25%;
   width: 95%;
   margin-left: auto;
@@ -41,7 +41,7 @@ section{
   border: 1px solid black;
 }
 
-.section-footer{
+.section-footer {
   height: 25%;
   width: 95%;
   margin-left: auto;
@@ -49,7 +49,7 @@ section{
   border: 1px solid black;
 }
 
-article{
+article {
   height: 45%;
   width: 95%;
   margin-left: auto;
@@ -57,14 +57,14 @@ article{
   border: 1px solid black;
 }
 
-aside{
+aside {
   height: 500px;
   width: 20%;
   background-color: #64b5f6;
   border: 1px solid black;
 }
 
-footer{
+footer {
   height: 30px;;
   width: 100%;
   margin-left: auto;
@@ -72,35 +72,39 @@ footer{
   border: 1px solid black;
 }
 
-.main-footer{
+.main-footer {
   background-color: #7986cb;
   text-align: center;
 }
 
-.header{
+.header {
   font-size: 46px;
-  background-color: magenta;
 }
 
-.navigation{
+.navigation {
   font-size: 12px;
-  background-color: blue;
 }
 
-.footer{
+.footer {
   font-size: 10px;
-  background-color: magenta;
 }
 
-.content{
+.content {
   font-size: 14px;
 }
 
-.sidebar{
+.sidebar {
   font-size: 10px;
+}
+
+
+*[class$="r"] {
   background-color: magenta;
 }
 
+*[class*="a"]:not([class$="r"]) {
+  background-color: blue;
+}
 
 /*
 
