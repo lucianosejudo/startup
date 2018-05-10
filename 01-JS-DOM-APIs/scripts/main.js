@@ -82,5 +82,44 @@ function getNorrisJoke3() {
     console.log('Fetch Error :-S', err);
     document.getElementById('section').style.color = "red";
   })
+};
 
+
+function createNode(element) {
+  return document.createElement(element); // Create the type of element you pass in the parameters
 }
+
+function append(parent, el) {
+  return parent.appendChild(el); // Append the second parameter(element) to the first one
+}
+
+
+function getResponse() {
+  let init = {method: 'GET', cache: 'default'};
+  const ul = document.getElementById('repositories');
+  while(ul.hasChildNodes()){
+    ul.removeChild(ul.firstChild);
+  }
+
+  let search = document.getElementById('inputRep').value;
+  fetch('https://api.github.com/search/repositories?q=topic:' + search, init).then(function(response){
+    if (response.status !== 200) {
+      console.log('Looks like there was a problem. Status Code: ' + response.status);
+      return;
+    }
+    response.json().then(function(response) {
+      console.log(response.items);
+      let repositories = response.items;
+      return repositories.map(function(repository){
+        let li = createNode('li'),
+        span = createNode('span');
+        span.innerHTML = `${repository.full_name}'`;
+        append(li, span);
+        append(ul, li);
+      })
+    });
+  })
+  .catch(function(err){
+    console.log('Fetch Error :-S', err);
+  })
+};
