@@ -123,3 +123,37 @@ function getResponse() {
     console.log('Fetch Error :-S', err);
   })
 };
+
+var matrix0 = new Array(3);
+var matrix1 = new Array(3);
+var matrix2 = new Array(3);
+var matrix = new Array(3);
+matrix0[0] = 5;
+matrix0[1] = 6;
+matrix0[2] = 7;
+matrix1[0] = 1;
+matrix1[1] = 2;
+matrix1[2] = 3;
+matrix2[0] = 9;
+matrix2[1] = 23;
+matrix2[2] = 5;
+matrix[0] = matrix0;
+matrix[1] = matrix1;
+matrix[2] = matrix2;
+
+function DOMmanipulation(array) {
+  let table = document.createElement("table");
+  document.body.appendChild(table);
+  for (let i = 0; i < array.length; i++) {
+    var row = document.createElement("tr");
+    table.appendChild(row);
+    for (var j = 0; j < array.length; j++) {
+      let td = document.createElement("td");
+      row.appendChild(td);
+      data = document.createTextNode(array[i][j]);
+      td.appendChild(data);
+    }
+  }
+};
+
+DOMmanipulation(matrix);
