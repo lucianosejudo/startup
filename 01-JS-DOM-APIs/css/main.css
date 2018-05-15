@@ -5,3 +5,12 @@
 .right-ul {
   float: right;
 }
+
+#hidden {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+#hidden.fade {
+  opacity: 1;
+}

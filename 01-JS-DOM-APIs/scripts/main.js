@@ -1,18 +1,7 @@
+var el = document.getElementById('hidden');
+
 function fadeIn() {
-  var el = document.querySelector('.hidden');
-  el.style.opacity = 0;
-
-  var last = +new Date();
-  var tick = function() {
-    el.style.opacity = +el.style.opacity + (new Date() - last) / 400;
-    last = +new Date();
-
-    if (+el.style.opacity < 1) {
-      (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
-    }
-  };
-
-  tick();
+  el.classList.toggle('fade');
 }
 
 function showAlert(){
@@ -113,7 +102,7 @@ function getResponse() {
       return repositories.map(function(repository){
         let li = createNode('li'),
         span = createNode('span');
-        span.innerHTML = `${repository.full_name}'`;
+        span.innerHTML = `${repository.full_name}`;
         append(li, span);
         append(ul, li);
       })
