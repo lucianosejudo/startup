@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+  margin: 5px;
+}
+
+.main-header {
+  height: 50px;
+  border: 1px solid black;
+}
+
+.nav-bar {
+  display: inline-block;
+  height: 500px;
+  width: 15%;
+  border: 1px solid black;
+}
+
+section {
+  display: inline-block;
+  height: 500px;
+  width: 66%;
+  border: 1px solid black;
+}
+
+.section-header {
+  height: 25%;
+  border: 1px solid black;
+}
+
+.section-footer {
+  height: 25%;
+  border: 1px solid black;
+}
+
+article {
+  height: 40%;
+  border: 1px solid black;
+}
+
+aside {
+  display: inline-block;
+  height: 500px;
+  width: 15%;
+  border: 1px solid black;
+}
+
+footer {
+  display:block;
+  border: 1px solid black;
+  height: 30px;
+}
+
+.container {
+  width: 100%;
+}
