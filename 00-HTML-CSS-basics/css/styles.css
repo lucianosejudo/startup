@@ -1,0 +1,120 @@
+<<<<<<< HEAD
+*{
+=======
+* {
+  border: 1px solid black;
+>>>>>>> e36964cdbd34e9474e4b8a975cea7552f8b143ca
+  margin: 5px;
+  font-size: 14px; /* to win weight in global font we can use !important */
+  font-family: 'Roboto';
+}
+
+.flex-cointainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+<<<<<<< HEAD
+.main-header{
+  width: 100%;
+=======
+.main-header {
+  width: 99%;
+  height: 50px;
+>>>>>>> e36964cdbd34e9474e4b8a975cea7552f8b143ca
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #9575cd;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.nav-bar {
+  height: 500px;
+  width: 20%;
+  background-color: #bbdefb;
+  border: 1px solid black;
+}
+
+section {
+  height: 500px;
+  width: 60%;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.section-header {
+  height: 25%;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+}
+
+.section-footer {
+  height: 25%;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+}
+
+article {
+  height: 45%;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+}
+
+aside {
+  height: 500px;
+  width: 20%;
+  background-color: #64b5f6;
+  border: 1px solid black;
+}
+
+footer {
+  height: 30px;;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+}
+
+.main-footer{
+  background-color: #7986cb;
+  text-align: center;
+}
+
+.header{
+  font-size: 46px;
+  background-color: magenta;
+}
+
+.navigation{
+  font-size: 12px;
+  background-color: blue;
+}
+
+.footer{
+  font-size: 10px;
+  background-color: magenta;
+}
+
+.content{
+  font-size: 14px;
+}
+
+.sidebar{
+  font-size: 10px;
+  background-color: magenta;
+}
+
+
+/*
+
+7. I would use !important.
+
+*/
