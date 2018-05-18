@@ -28,15 +28,15 @@ class EventEmitter {
         for(let i = 0; i < this.events[eventName].length; i++) {
           if(this.events[eventName][i] === callback) {
             this.events[eventName].splice(i, 1);
-            console.log(eventName + ":" + callback.name + " has been deleted");
+            console.log(`${eventName}: ${callback.name} has been deleted`);
           }
         }
       } else {
-        delete this.events[eventName];
-        console.log(eventName + ":" + callback.name + " has been deleted");
+        this.events[eventName] = undefined;
+        console.log(`${eventName}: ${callback.name} has been deleted`);
       }
     } else {
-      console.log("There is no event to delete");
+      console.log('There is no event to delete');
     }
   }
 
@@ -55,17 +55,17 @@ class Logger {
 
   }
 
-  log(info) {
-    console.log(info);
+  log(info, loggerFunction) {
+    loggerFunction(info);
   }
 }
 
 let social = {
   share(friendName) {
-    console.log(friendName + " share " + this.name);
+    console.log(`${friendName} share ${this.name}`);
   },
   like(friendName) {
-    console.log(friendName + " likes " + this.name);
+    console.log(`${friendName} likes ${this.name}`);
   }
 };
 
@@ -77,9 +77,9 @@ class Movie extends EventEmitter {
     this.duration = duration;
     this.cast = {};
     this.play = this.play.bind(this);
-    this.on('play', () => {console.log(this.name + " has been started")});
-    this.on('pause', () => {console.log(this.name + " has been paused")});
-    this.on('resume', () => {console.log(this.name + " has been resumed")});
+    this.on('play', () => {console.log(`${this.name} has been started`)});
+    this.on('pause', () => {console.log(`${this.name} has been paused`)});
+    this.on('resume', () => {console.log(`${this.name} has been resumed`)});
   }
 
   play() {
@@ -95,7 +95,7 @@ class Movie extends EventEmitter {
   }
 
   addCast(cast) {
-    if(cast.length === undefined){
+    if(!Array.isArray(cast)){
       this.cast[cast.name] = cast.age;
     } else {
         for (var i = 0; i < cast.length; i++) {
@@ -106,6 +106,6 @@ class Movie extends EventEmitter {
 }
 
 Object.assign(Movie.prototype, social);
-const movie = new Movie("Interstellar", "2014", "2h 49m");
+const movie = new Movie('Interstellar', '2014', '2h 49m');
 movie.share('luciano');
 movie.like('luciano');

@@ -6,21 +6,21 @@ class Movie {
   }
 
   play() {
-    console.log(this.name + " has been started");
+    console.log(`${this.name} has been started`);
   }
 
   pause() {
-    console.log(this.name + " has been paused");
+    console.log(`${this.name} has been paused`);
   }
 
   resume() {
-    console.log(this.name + " has been resumed");
+    console.log(`${this.name} has been resumed`);
   }
 }
 
-let movie1 = new Movie("Interstellar", "2014", "2h 49m");
-let movie2 = new Movie("Ready player one", "2018", "2h 19m");
-let movie3 = new Movie("Doctor Strange", "2016", "1h 55m");
+const movie1 = new Movie('Interstellar', '2014', '2h 49m');
+const movie2 = new Movie('Ready player one', '2018', '2h 19m');
+const movie3 = new Movie('Doctor Strange', '2016', '1h 55m');
 movie1.play();
 movie1.pause();
 movie2.play();
@@ -57,15 +57,15 @@ class EventEmitter {
         for(let i = 0; i < this.events[eventName].length; i++) {
           if(this.events[eventName][i] === callback) {
             this.events[eventName].splice(i, 1);
-            console.log(eventName + ":" + callback.name + " has been deleted");
+            console.log(`${eventName}: ${callback.name} has been deleted`);
           }
         }
       } else {
-        delete this.events[eventName];
-        console.log(eventName + ":" + callback.name + " has been deleted");
+        this.events[eventName] = undefined;
+        console.log(`${eventName}: ${callback.name} has been deleted`);
       }
     } else {
-      console.log("There is no event to delete");
+      console.log('There is no event to delete');
     }
   }
 
@@ -79,11 +79,11 @@ class EventEmitter {
 }
 
 function click() {
-  console.log("Click!");
+  console.log('Click!');
 }
 
 function hello() {
-  console.log("Hello");
+  console.log('Hello');
 }
 
 const eventEm = new  EventEmitter();
