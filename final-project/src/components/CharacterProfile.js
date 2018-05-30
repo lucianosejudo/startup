@@ -13,14 +13,14 @@ const CharacterProfile = (props) => {
               <ControlLabel>Realm Name</ControlLabel>{' '}
               <FormControl
                 type="text"
-                placeholder="Tichondrius"
-                onChange={props.handleInput()}
+                placeholder="Realm Name"
+                onChange={(ev) => handleInput(ev.target.value)}
                 value={props.value}
                />
             </FormGroup>{' '}
             <FormGroup controlId="formInlineEmail">
               <ControlLabel>Player Name</ControlLabel>{' '}
-              <FormControl type="text" placeholder="Bluegator" />
+              <FormControl type="text" placeholder="Player Name " />
             </FormGroup>{' '}
             <Button type="submit">Send invitation</Button>
           </form>

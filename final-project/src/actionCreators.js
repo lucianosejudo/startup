@@ -28,11 +28,11 @@ const loadRealmStatus = () => {
   }
 }
 
-const handleInput = (event) => {
-  let value = "hola";
+const handleInput = (value) => {
+  // let value = "hola";
   return {
     type: 'HANDLE_INPUT_CHANGE',
-    value
+    payload: { value },
   }
 }
 
