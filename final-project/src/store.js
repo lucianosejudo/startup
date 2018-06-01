@@ -1,26 +1,63 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
-const reducer = (state, action) => {
-  switch (action.type) {
+const initialState = {
+   pvpRank: {
+    players: []
+   },
+   realmStatus: {
+     realms: []
+   },
+   inputValue: [],
+   playerProfile: [],
+   petList: {
+     pets: []
+   },
+}
+
+const reducer = (state, { type, payload }) => {
+  switch (type) {
 
     case 'LOAD_RANK' :
         return {
           ...state,
-          pvpRank: action.players
+          pvpRank: payload
+          //loading: true
         };
+
+  /*
+    case 'LOAD_RANK_SUCCESS' :
+        return {
+          ...state,
+          pvpRank: payload.players
+          loading: false,
+        };
+
+    case 'LOAD_RANK_FAIL' :
+        return {
+          ...state,
+          error: action.payload.error
+          loading: false,
+        };
+*/
 
     case 'LOAD_REALM_STATUS':
         return {
           ...state,
-          realmStatus: action.realmStatus.realms
+          realmStatus: payload
         }
 
-    case 'HANDLE_INPUT_CHANGE':
+    case 'STORE_INPUT_VALUE':
         return {
           ...state,
-          inputValue: action.value
+          playerProfile: [payload]
         }
+
+    case 'STORE_PET_LIST':
+      return {
+        ...state,
+        petList: payload
+      }
 
 
     default:
@@ -28,11 +65,14 @@ const reducer = (state, action) => {
   }
 }
 
-const logger = store => next => action => {
-  console.log('dispatching', action)
-  let result = next(action)
-  console.log('next state', store.getState())
-  return result
-}
 
-export default createStore(reducer, { pvpRank: [], realmStatus: [], inputValue : []  }, applyMiddleware(logger, thunk));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(
+  reducer,
+  initialState,
+  composeEnhancers(
+    applyMiddleware(thunk)
+  )
+);
+
+export default store

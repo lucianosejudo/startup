@@ -14,11 +14,17 @@ const Header = () => {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavItem eventKey={1} href="/Rank">
-              PvP Rank
+            <NavItem eventKey={1} >
+              <Link to='/Rank'>PvP Rank</Link>
             </NavItem>
-            <NavItem eventKey={2} href="/Character">
-              Character Profile
+            <NavItem eventKey={2}>
+              <Link to='/Character'>Character Profile</Link>
+            </NavItem>
+            <NavItem eventKey={3}>
+              <Link to='/RealmStatus'>Realm Status</Link>
+            </NavItem>
+            <NavItem eventKey={4} >
+              <Link to='/Pets'>Pets</Link>
             </NavItem>
           </Nav>
         </Navbar.Collapse>

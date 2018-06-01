@@ -1,5 +1,6 @@
 const loadPvpRank = () => {
   return async dispatch => {
+
       let res = await fetch('https://us.api.battle.net/wow/leaderboard/2v2?locale=en_US&apikey=g672kvhg92gqaz7bukvfrxu5yvxuvg2g')
       let rank = await res.json();
       let players = rank.rows.filter(player => player.ranking <= 20);
@@ -10,12 +11,10 @@ const loadPvpRank = () => {
           players[i].factionId = 'Horde';
         }
       }
-      return dispatch({
-        type: "LOAD_RANK",
-        players
-      })
+      return dispatch(loadRank(players))
   }
 }
+
 
 const loadRealmStatus = () => {
   return async dispatch => {
@@ -23,17 +22,43 @@ const loadRealmStatus = () => {
       let realmStatus = await res.json();
       return dispatch({
         type: "LOAD_REALM_STATUS",
-        realmStatus
+        payload: realmStatus
       })
   }
 }
 
-const handleInput = (value) => {
-  // let value = "hola";
-  return {
-    type: 'HANDLE_INPUT_CHANGE',
-    payload: { value },
+
+const storeInputValue = (valueRealm, valueName) => {
+  return async dispatch => {
+      let res = await fetch(`https://us.api.battle.net/wow/character/${valueRealm}/${valueName}?fields=items%2Cstats&locale=en_US&apikey=g672kvhg92gqaz7bukvfrxu5yvxuvg2g`)
+      let playerProfile = await res.json();
+      return dispatch({
+        type: 'STORE_INPUT_VALUE',
+        payload: { playerProfile },
+      });
   }
 }
 
-export { loadPvpRank, loadRealmStatus, handleInput };
+const loadRank = (players) => {
+  return {
+    type: 'LOAD_RANK',
+    payload: { players },
+  }
+}
+
+const storePetList = () => {
+  return async dispatch => {
+      let res = await fetch(`https://us.api.battle.net/wow/pet/?locale=en_US&apikey=g672kvhg92gqaz7bukvfrxu5yvxuvg2g`)
+      let petList = await res.json();
+      return dispatch({
+        type: 'STORE_PET_LIST',
+        payload: petList
+      });
+  }
+
+}
+
+
+
+
+export { loadPvpRank,  storeInputValue, loadRealmStatus, storePetList };

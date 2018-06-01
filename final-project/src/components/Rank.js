@@ -1,6 +1,8 @@
 import React from 'react';
 import { Row, Col, PageHeader, Table} from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { storeInputValue } from '../actionCreators';
+import { Link } from 'react-router-dom';
 
 const Rank = (props) => {
   return (
@@ -28,10 +30,14 @@ const Rank = (props) => {
               </tr>
             </thead>
             <tbody>
-              {props.rank.map(player =>
+              {props.rank.players.map(player =>
                 <tr key={player.ranking}>
                   <td>{player.ranking}</td>
-                  <td>{player.name}</td>
+                  <td>
+                    <Link to="/Character"  onClick={() => props.handleInputValue(player.realmName, player.name)}>
+                      {player.name}
+                    </Link>
+                  </td>
                   <td>{player.realmName}</td>
                   <td>{player.factionId}</td>
                   <td>{player.seasonWins}</td>
@@ -53,4 +59,10 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Rank);
+const mapDispatchToProps = dispatch => {
+  return {
+    handleInputValue: (valueRealm, valueName) => dispatch(storeInputValue(valueRealm, valueName)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Rank);

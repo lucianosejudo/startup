@@ -18,7 +18,6 @@ const App = () => (
     <Row className="show-grid">
       <Col xs={12}>
         <Main />
-
       </Col>
     </Row>
   </Grid>
