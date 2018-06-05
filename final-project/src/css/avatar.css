@@ -1,0 +1,12 @@
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border: 2px solid black;
+}
+
+.avatar-row {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
